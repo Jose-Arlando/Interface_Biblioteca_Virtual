@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.*;
+import java.awt.event.*;
+
 
 public class Entrar {
     public void CriarTelaEntrar(){
@@ -36,5 +38,19 @@ public class Entrar {
         entrar.add(pfsenha);
         entrar.add(btnconfirmar);
         entrar.add(btncadastrar);
+
+        //EVENTOS
+        btnconfirmar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println("confirmado");
+            }
+        });
+        btncadastrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println("cadastrar");
+            }
+        });
     }
 }

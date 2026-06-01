@@ -50,6 +50,13 @@ public class Entrar {
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("confirmado");
+                for(Cliente c: listaClientes){
+                    entrar.dispose();
+                    Menu menu = new Menu(c);
+                    menu.CriarMenu();
+                    // if(c.getNome().equals(tfusuario.getText()) && c.getSenha().equals(String.valueOf(pfsenha.getPassword()))){
+                    // }
+                }
                 
             }
         });

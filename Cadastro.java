@@ -40,7 +40,7 @@ public class Cadastro {
         JButton btnVoltar = new JButton("VOLTAR");
         
         //EDITAR
-        telaCadastro.setBounds(500, 20, 300, 500);
+        telaCadastro.setBounds(650, 220, 300, 500);
         telaCadastro.setLayout(null);
         lbNome.setBounds(50, 50, 80, 20);
         tfNome.setBounds(50, 70, 200, 20);
@@ -93,6 +93,14 @@ public class Cadastro {
     btnCadastrar.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
+            // if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() || tfEmail.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEndereco.getText().isEmpty() || pfSenha.getPassword().length == 0 || pfConfirmarSenha.getPassword().length == 0){
+            //     JOptionPane.showMessageDialog(telaCadastro, "Por favor, preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+            //     return;
+            // }
+            if(!String.valueOf(pfSenha.getPassword()).equals(String.valueOf(pfConfirmarSenha.getPassword()))){
+                JOptionPane.showMessageDialog(telaCadastro, "As senhas não coincidem!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             Cliente c = new Cliente(tfNome.getText(), tfCpf.getText(), tfTelefone.getText(), tfEmail.getText(), tfEndereco.getText(), String.valueOf(pfSenha.getPassword()), rbMasculino.isSelected() ? "Masculino" : "Feminino");
             listaClientes.add(c);
             
@@ -106,6 +114,7 @@ public class Cadastro {
                 System.out.println("Gênero: " + cliente.getGenero());
                 System.out.println("-----------------------------");
             }
+            
             
         }
     });

@@ -1,11 +1,17 @@
 import javax.swing.*;
-import javax.swing.event.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 
 public class Entrar {
+    ArrayList <Cliente> listaClientes = new ArrayList<Cliente>();
+    ArrayList <Livro> listaLivros = new ArrayList<Livro>();
     public void CriarTelaEntrar(){
         //CRIAR
+        
+        Cliente c = new Cliente("João", "3", "3", "4", "2", "7", "5");
+        listaClientes.add(c);
+
         JFrame entrar = new JFrame("Tela de Login");
         JLabel lblogin = new JLabel("Login");
         JLabel lbusuario = new JLabel("Usuário");
@@ -44,12 +50,17 @@ public class Entrar {
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("confirmado");
+                
             }
         });
         btncadastrar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("cadastrar");
+                Cadastro cadastro = new Cadastro(listaClientes, entrar); // lista armazenada na classe
+                cadastro.CriarTelaCadastro();
+
+                entrar.setVisible(false);
             }
         });
     }

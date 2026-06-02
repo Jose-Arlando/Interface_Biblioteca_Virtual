@@ -1,11 +1,15 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel;
 
 public class Menu {
     Cliente Cliente;
-    Menu(Cliente cliente){
+    ArrayList<Livro> listaLivros;
+    Menu(Cliente cliente, ArrayList<Livro> listaLivros){
         this.Cliente = cliente;
+        this.listaLivros = listaLivros;
     }
     public void CriarMenu(){
         //CRIAR
@@ -40,6 +44,8 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("Adicionar");
+                CadastroLivro cadastrolivre = new CadastroLivro(modelo, listaLivros);
+                cadastrolivre.CriarCadastroLivro();
             }
         });
         btnExcluir.addActionListener(new ActionListener(){

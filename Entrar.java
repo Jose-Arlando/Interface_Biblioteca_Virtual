@@ -52,7 +52,7 @@ public class Entrar {
                 System.out.println("confirmado");
                 for(Cliente c: listaClientes){
                     entrar.dispose();
-                    Menu menu = new Menu(c);
+                    Menu menu = new Menu(c, listaLivros);
                     menu.CriarMenu();
                     // if(c.getNome().equals(tfusuario.getText()) && c.getSenha().equals(String.valueOf(pfsenha.getPassword()))){
                     // }

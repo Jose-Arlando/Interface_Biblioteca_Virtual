@@ -2,16 +2,17 @@ class Livro{
     private String titulo;
     private String autor;
     private String status;
-    private int ano;
-    private int paginas;
+    private String ano;
+    private String paginas;
 
-    public Livro(String titulo, String autor, String status, int ano, int paginas ){
+    public Livro(String titulo, String autor, String ano, String paginas, String status ){
         this.titulo = titulo;
         this.autor = autor;
-        this.status = status;
         this.ano = ano;
         this.paginas = paginas;
+        this.status = status;
     }
+    public Livro(){}
 
     public String getTitulo(){
         return titulo;
@@ -22,10 +23,10 @@ class Livro{
     public String getStatus(){
         return status;
     }
-    public int getAno(){
+    public String getAno(){
         return ano;
     }
-    public int getPaginas(){
+    public String getPaginas(){
         return paginas;
     }
     
@@ -38,10 +39,10 @@ class Livro{
     public void setStatus(String status){
         this.status = status;
     }
-    public void setAno(int ano){
+    public void setAno(String ano){
         this.ano = ano;
     }
-    public void setPaginas(int paginas){
+    public void setPaginas(String paginas){
         this.paginas = paginas;
     }
 }

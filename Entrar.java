@@ -32,8 +32,8 @@ public class Entrar {
         tfusuario.setBounds(150, 190, 200, 30);
         lbsenha.setBounds(228, 250, 44, 20);
         pfsenha.setBounds(150, 270, 200, 30);
-        btnconfirmar.setBounds(70, 370, 110, 30);
-        btncadastrar.setBounds(320, 370, 110, 30);
+        btncadastrar.setBounds(70, 370, 110, 30);
+        btnconfirmar.setBounds(320, 370, 110, 30);
 
         //TORNAR VISÍVEL
         entrar.setVisible(true);
@@ -50,14 +50,18 @@ public class Entrar {
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("confirmado");
+                boolean encontrado = false;
                 for(Cliente c: listaClientes){
-                    entrar.dispose();
-                    Menu menu = new Menu(c, listaLivros);
-                    menu.CriarMenu();
-                    // if(c.getNome().equals(tfusuario.getText()) && c.getSenha().equals(String.valueOf(pfsenha.getPassword()))){
-                    // }
+                    if(c.getNome().equals(tfusuario.getText()) && c.getSenha().equals(String.valueOf(pfsenha.getPassword()))){
+                        encontrado = true;
+                        entrar.dispose();
+                        Menu menu = new Menu(c, listaLivros);
+                        menu.CriarMenu();
+                    } 
+                } 
+                if(!encontrado){
+                    JOptionPane.showMessageDialog(entrar, "Usuário ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-                
             }
         });
         btncadastrar.addActionListener(new ActionListener(){

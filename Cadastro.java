@@ -93,10 +93,10 @@ public class Cadastro {
     btnCadastrar.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
-            // if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() || tfEmail.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEndereco.getText().isEmpty() || pfSenha.getPassword().length == 0 || pfConfirmarSenha.getPassword().length == 0){
-            //     JOptionPane.showMessageDialog(telaCadastro, "Por favor, preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
-            //     return;
-            // }
+            if(tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() || tfEmail.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEndereco.getText().isEmpty() || pfSenha.getPassword().length == 0 || pfConfirmarSenha.getPassword().length == 0){
+                JOptionPane.showMessageDialog(telaCadastro, "Por favor, preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             if(!String.valueOf(pfSenha.getPassword()).equals(String.valueOf(pfConfirmarSenha.getPassword()))){
                 JOptionPane.showMessageDialog(telaCadastro, "As senhas não coincidem!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;

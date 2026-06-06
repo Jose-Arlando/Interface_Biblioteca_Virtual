@@ -83,7 +83,7 @@ public class CadastroLivro {
                 System.out.println(listaLivros == null);
                 listaLivros.add(livro);
 
-                System.out.println("Lista: " + listaLivros.size());
+                // System.out.println("Lista: " + listaLivros.size());
 
                 modelo.addRow(new Object[]{
                     tftitulo.getText(),
@@ -93,7 +93,7 @@ public class CadastroLivro {
                     status
                 });
 
-                System.out.println("Tabela: " + modelo.getRowCount());
+                // System.out.println("Tabela: " + modelo.getRowCount());
                 
                 cadastrarLivro.dispose();
             }

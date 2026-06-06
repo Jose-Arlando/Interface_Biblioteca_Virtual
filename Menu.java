@@ -52,18 +52,53 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("Excluir");
+                int linha = tabela.getSelectedRow();
+                modelo.removeRow(linha);
+                listaLivros.remove(linha);
+                System.out.println(listaLivros.size());
             }
         });
         btnEditar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("Editar");
+                int linhaeditar = tabela.getSelectedRow();
+                Editarlinha editarlinha = new Editarlinha(modelo, listaLivros, linhaeditar);
+                editarlinha.CriarEditarLinha();
             }
         });
         btnBuscar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 System.out.println("Buscar");
+                menu.setLayout(null);
+                JTextField tfBusca = new JTextField();
+                JButton btnBusca = new JButton("Confirmar");
+                tfBusca.setBounds(450,0,320,30);
+                btnBusca.setBounds(770,0,130,30);
+                menu.add(tfBusca);
+                menu.add(btnBusca);
+                menu.revalidate(); // recalcula o layout
+                menu.repaint();    // redesenha a tela
+                
+                btnBusca.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                        modelo.setRowCount(0); // limpa a tabela
+                        String busca = tfBusca.getText().toLowerCase();
+                        for(Livro livro : listaLivros){
+                            if(livro.getTitulo().toLowerCase().contains(busca) || livro.getAutor().toLowerCase().contains(busca)){
+                                modelo.addRow(new Object[]{
+                                    livro.getTitulo(),
+                                    livro.getAutor(),
+                                    livro.getAno(),
+                                    livro.getPaginas(),
+                                    livro.getStatus()
+                                });
+                            }
+                        }
+                    }
+                });
             }
         });
     }
